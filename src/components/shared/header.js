@@ -10,9 +10,9 @@ const Header = () => {
 
     return ( 
         <header className={styles.header}>
-            <Link to='/'>Store</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/cart'> <CartIcon/> Cart ({itemCount})</Link>
+            <Link to='/'>Loja</Link>
+            <Link to='/mapa'>Mapa</Link>
+            <Link to='/carrinho'> <CartIcon/> Carrinho ({itemCount})</Link>
         </header>
      );
 }

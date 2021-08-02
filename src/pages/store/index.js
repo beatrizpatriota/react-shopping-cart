@@ -6,11 +6,11 @@ import ProductsGrid from './ProductsGrid';
 const Store = () => {
     
     return ( 
-        <Layout title="Store" description="This is the Store page" >
+        <Layout title="Lojas" description="Está é a pagina de lojas" >
             <div >
                 <div className="text-center mt-5">
-                    <h1>Store</h1>
-                    <p>This is the Store Page.</p>
+                    <h1>Lojas</h1>
+                    <p>Encontre seus produtos favoritos</p>
                 </div>
                 <ProductsGrid/>
             </div>

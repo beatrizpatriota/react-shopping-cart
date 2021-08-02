@@ -4,7 +4,8 @@ import { CartReducer, sumItems } from './CartReducer';
 export const CartContext = createContext()
 
 const storage = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-const initialState = { cartItems: storage, ...sumItems(storage), checkout: false };
+const storageUser = localStorage.getItem('email') ? JSON.parse(localStorage.getItem('email')) : '';
+const initialState = { cartItems: storage, ...sumItems(storage), isLoggedIn: false, email: storageUser, checkout: false };
 
 const CartContextProvider = ({children}) => {
 
@@ -30,9 +31,11 @@ const CartContextProvider = ({children}) => {
         dispatch({type: 'CLEAR'})
     }
 
-    const handleCheckout = () => {
-        console.log('CHECKOUT', state);
-        dispatch({type: 'CHECKOUT'})
+    const handleCheckout = payload => {
+        dispatch({type: 'CHECKOUT', payload})
+    }
+    const handleLogin = payload => {
+        dispatch({type: 'LOGIN', payload})
     }
 
     const contextValues = {
@@ -42,6 +45,7 @@ const CartContextProvider = ({children}) => {
         decrease,
         clearCart,
         handleCheckout,
+        handleLogin,
         ...state
     } 
 
